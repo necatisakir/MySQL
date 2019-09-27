@@ -1,0 +1,20 @@
+--MYSQL HOMEWORK ANSWERS--
+--1--
+SELECT 
+	customerNumber, 
+    customerName, 
+    creditLimit 
+FROM customers 
+WHERE creditLimit> 100000 
+ORDER BY creditLimit DESC;
+
+--2--
+
+SELECT * FROM customers
+WHERE customerNumber=151
+
+--3--
+
+SELECT creditLimit FROM customers
+WHERE postalCode=10022
+ORDER BY creditLimit DESC
