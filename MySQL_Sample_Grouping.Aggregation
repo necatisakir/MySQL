@@ -1,0 +1,27 @@
+--MySQL Homework, Grouping and Aggregation--
+
+--1--
+
+SELECT
+    creditLimit,
+    customerName,
+MAX(creditLimit)
+FROM customers;
+
+--2--
+
+SELECT
+    country,
+QCOUNT(*)
+FROM customers
+GROUP BY country;
+
+--3--
+
+SELECT
+    customerNumber,
+    count(*) as mik
+FROM orders
+GROUP by customerNumber
+ORDER by mik
+LIMIT 1;
