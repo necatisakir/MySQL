@@ -1,0 +1,21 @@
+WITH country_size as(
+	SELECT
+		country,
+		count(country) AS country_count
+	FROM customers
+	GROUP BY country
+)
+SELECT
+	t.countrySize,
+	count(t.countrySize) 
+FROM (
+    SELECT 
+	country, 
+	CASE WHEN country_count > 20 THEN 'Buyuk'
+	WHEN country_count < 10 THEN 'Kucuk'
+	ELSE 'Orta' END AS countrySize
+	FROM customers
+	JOIN country_size USING (country)
+	GROUP BY country
+) t 
+GROUP BY t.countrySize;
